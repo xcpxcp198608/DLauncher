@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DLauncher</string>
+
+    <string name="apps">应用</string>
+    <string name="games">在线视频</string>
+    <string name="videos">本地视频</string>
+    <string name="music">音乐</string>
+    <string name="clean">Storage Cleanup</string>
+
+</resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.px.dlauncher.activity.MainActivity">
+
+    <include layout="@layout/main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"/>
+
+    <GridView
+        android:layout_marginTop="20dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:numColumns="10"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:id="@+id/gv_shortcut"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+        <ImageButton
+            android:id="@+id/ibt_power"
+            android:background="@drawable/bg_power"
+            android:src="@drawable/ic_power_settings_new_red_500_36dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageButton
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/ibt_power"
+            android:id="@+id/ibtVolumeDown"
+            android:background="@drawable/bg_power"
+            android:src="@drawable/ic_volume_down_white_36dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageButton
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/ibtVolumeDown"
+            android:id="@+id/ibtVolumeUp"
+            android:background="@drawable/bg_power"
+            android:src="@drawable/ic_volume_up_white_36dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageView
+            android:id="@+id/iv_wifi"
+            android:src="@drawable/wifi0"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_usb"
+            android:layout_toLeftOf="@id/iv_wifi"
+            android:src="@drawable/ic_usb_white_36dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

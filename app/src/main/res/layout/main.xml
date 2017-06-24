@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingTop="30dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageButton
+                android:id="@+id/ibt_online"
+                android:layout_margin="5dp"
+                android:src="@drawable/online2"
+                android:background="@drawable/bg_online"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/ibt_video"
+                android:layout_margin="5dp"
+                android:src="@drawable/video2"
+                android:background="@drawable/bg_video"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/ibt_images"
+                android:layout_margin="5dp"
+                android:src="@drawable/images2"
+                android:background="@drawable/bg_image"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageButton
+                android:id="@+id/ibt_music"
+                android:layout_margin="5dp"
+                android:src="@drawable/music2"
+                android:background="@drawable/bg_music"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/ibt_browser"
+                android:layout_margin="5dp"
+                android:src="@drawable/browser2"
+                android:background="@drawable/bg_browser"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/ibt_apps"
+                android:layout_margin="5dp"
+                android:src="@drawable/apps2"
+                android:background="@drawable/bg_app"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_margin="5dp"
+            android:text="00:00 AM"
+            android:textColor="@android:color/white"
+            android:background="@color/colorRed3"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_margin="5dp"
+            android:text="Monday \n01 June"
+            android:textColor="@android:color/white"
+            android:background="@color/colorGreen3"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <FrameLayout
+            android:id="@+id/fl_clean"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_clean"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/clean"
+                android:layout_gravity="center_vertical"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:id="@+id/tv_clean"
+                android:layout_marginLeft="75dp"
+                tools:text="30%\nStorage Cleanup"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/ibt_settings"
+            android:layout_margin="5dp"
+            android:src="@drawable/setting2"
+            android:background="@drawable/bg_setting"
+            android:layout_weight="1.6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
