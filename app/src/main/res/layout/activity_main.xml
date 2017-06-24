@@ -49,6 +49,7 @@
             android:layout_height="36dp" />
 
         <ImageButton
+            android:visibility="gone"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/ibtVolumeDown"
             android:id="@+id/ibtVolumeUp"
