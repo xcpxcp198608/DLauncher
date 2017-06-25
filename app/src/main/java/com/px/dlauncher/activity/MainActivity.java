@@ -154,6 +154,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+        gvShortcut.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
+                intent.putExtra("shortcut" ,F.app_type.shortcut);
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -193,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 audioManager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
                 break;
             case R.id.ibtVolumeDown:
-                audioManager.adjustVolume(AudioManager.ADJUST_LOWER, AudioManager.FLAG_SHOW_UI);
+                audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
                 break;
             case R.id.fl_clean:
                 SysUtils.cleanMemory(MainActivity.this);
