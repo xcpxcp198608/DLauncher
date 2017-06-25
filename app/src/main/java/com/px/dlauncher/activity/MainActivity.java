@@ -154,6 +154,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+        gvShortcut.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
+                intent.putExtra("shortcut" ,F.app_type.shortcut);
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 
     @Override

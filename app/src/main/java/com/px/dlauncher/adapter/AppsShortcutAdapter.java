@@ -28,7 +28,11 @@ public class AppsShortcutAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size()+1;
+        if(list.size() < 10){
+            return list.size()+1;
+        }else {
+            return list.size();
+        }
     }
 
     @Override
@@ -59,16 +63,6 @@ public class AppsShortcutAdapter extends BaseAdapter {
         }else {
             viewHolder.ivIcon.setImageResource(R.drawable.add);
         }
-        convertView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    Zoom.zoomIn10_11(v);
-                }else{
-                    Zoom.zoomIn11_10(v);
-                }
-            }
-        });
         return convertView;
     }
 
