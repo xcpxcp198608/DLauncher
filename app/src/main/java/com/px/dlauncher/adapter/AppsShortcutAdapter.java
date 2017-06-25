@@ -28,7 +28,11 @@ public class AppsShortcutAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size()+1;
+        if(list.size() < 10){
+            return list.size()+1;
+        }else{
+            return list.size();
+        }
     }
 
     @Override
