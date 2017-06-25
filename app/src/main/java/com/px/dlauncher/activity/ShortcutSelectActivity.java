@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.GridView;
+import android.widget.Toast;
 
+import com.px.dlauncher.F;
 import com.px.dlauncher.R;
 import com.px.dlauncher.adapter.ShortcutAdapter;
 import com.px.dlauncher.animator.Zoom;
@@ -25,6 +27,7 @@ public class ShortcutSelectActivity extends AppCompatActivity {
     private List<AppInfo> list;
     private GridView gvShortcut;
     private AppsDao appsDao;
+    private List<AppInfo> shortcutApps;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class ShortcutSelectActivity extends AppCompatActivity {
         gvShortcut = (GridView) findViewById(R.id.gv_shortcut);
         shortcut = getIntent().getStringExtra("shortcut");
         appsDao = AppsDao.getInstance(this);
+
     }
 
     @Override
@@ -44,17 +48,28 @@ public class ShortcutSelectActivity extends AppCompatActivity {
         gvShortcut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                shortcutApps = appsDao.queryDataByShortcut(F.app_type.shortcut);
                 AppInfo appInfo = list.get(position);
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
-                if(checkBox.isChecked()){
-                    checkBox.setChecked(false);
-                    appInfo.setShortcut("1");
-                    appsDao.updateShortcut(appInfo);
+                if(shortcutApps.size() >= 10){
+                    if (checkBox.isChecked()) {
+                        checkBox.setChecked(false);
+                        appInfo.setShortcut("1");
+                        appsDao.updateShortcut(appInfo);
+                    } else {
+                        Toast.makeText(ShortcutSelectActivity.this, "Only 10 shortcut keys can be set", Toast.LENGTH_LONG).show();
+                    }
                 }else {
-                    checkBox.setChecked(true);
-                    appInfo.setShortcut(shortcut);
-                    appsDao.updateShortcut(appInfo);
-                    finish();
+                    if (checkBox.isChecked()) {
+                        checkBox.setChecked(false);
+                        appInfo.setShortcut("1");
+                        appsDao.updateShortcut(appInfo);
+                    } else {
+                        checkBox.setChecked(true);
+                        appInfo.setShortcut(shortcut);
+                        appsDao.updateShortcut(appInfo);
+                        finish();
+                    }
                 }
             }
         });
