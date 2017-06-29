@@ -225,11 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                try {
-                    Runtime.getRuntime().exec(new String[]{"su","-c","reboot -p"});
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                shutdown();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -239,6 +235,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         builder.show();
+    }
+
+    private void shutdown(){
+        try {
+            Intent intent =new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }catch (SecurityException e){
+            Logger.d(e.getMessage());
+        }
     }
 
     private Handler handler = new Handler(Looper.getMainLooper()) {
