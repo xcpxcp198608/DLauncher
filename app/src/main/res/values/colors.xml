@@ -14,6 +14,8 @@
     <color name="colorPurple3">#8f1acb</color>
     <color name="colorRed3">#ff017e</color>
     <color name="colorGreen3">#00a201</color>
+    <color name="colorGreen">#00ff00</color>
+    <color name="colorYellow">#f9dc03</color>
     <color name="colorBlue3">#075ac0</color>
     <color name="colorBlue4">#030c43</color>
     <color name="colorGreen4">#aed500</color>

@@ -111,6 +111,22 @@ public class AppsDao {
         return list;
     }
 
+    public List<AppInfo> showShortcutData(String shortcut){
+        Cursor cursor = sqLiteDatabase.query(SQLiteHelper.TABLE_NAME , null , "shortcut=?",
+                new String []{shortcut} ,null ,null ,"label");
+        List<AppInfo> list =new ArrayList<>();
+        while(cursor.moveToNext()){
+            AppInfo appInfo = new AppInfo();
+            appInfo.setShortcut(shortcut);
+            appInfo.setType(cursor.getString(cursor.getColumnIndex("type")));
+            appInfo.setLabel(cursor.getString(cursor.getColumnIndex("label")));
+            appInfo.setPackageName(cursor.getString(cursor.getColumnIndex("packageName")));
+            list.add(appInfo);
+        }
+        cursor.close();
+        return list;
+    }
+
     public List<AppInfo> queryData(){
         List<AppInfo> list =new ArrayList<>();
         Cursor cursor = sqLiteDatabase.query(SQLiteHelper.TABLE_NAME , null , "_id>?",

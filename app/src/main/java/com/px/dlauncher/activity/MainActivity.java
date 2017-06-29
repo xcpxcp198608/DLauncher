@@ -44,29 +44,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener {
 
-    private ImageButton ibtOnline, ibtVideo, ibtImages, ibtMusic, ibtBrowser, ibtApps,
-            ibtSettings, ibtPower, ibtVolumeUp, ibtVolumeDown;
+    private ImageButton ibtOnline, ibtVideo, ibtMusic, ibtApps,ibtGooglePlay, ibtSC1, ibtSC2, ibtSC3, ibtSC4
+            , ibtSC5, ibtSC6, ibtSC7;
     private ImageView ivWifi, ivUsb;
-    private TextView tvTime, tvDate, tvClean;
-    private FrameLayout flClean;
-    private GridView gvShortcut;
     private NetworkStatusReceiver networkStatusReceiver;
     private WifiStatusReceiver wifiStatusReceiver;
     private Subscription subscription;
     private AudioManager audioManager;
+    private AppsDao appsDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        appsDao = AppsDao.getInstance(Application.getContext());
         initView();
-        showTimeAndData();
         registerReceiver();
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
     }
@@ -74,49 +75,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         ibtOnline = (ImageButton) findViewById(R.id.ibt_online);
         ibtVideo = (ImageButton) findViewById(R.id.ibt_video);
-        ibtImages = (ImageButton) findViewById(R.id.ibt_images);
         ibtMusic = (ImageButton) findViewById(R.id.ibt_music);
-        ibtBrowser = (ImageButton) findViewById(R.id.ibt_browser);
         ibtApps = (ImageButton) findViewById(R.id.ibt_apps);
-        ibtSettings = (ImageButton) findViewById(R.id.ibt_settings);
-        ibtPower = (ImageButton) findViewById(R.id.ibt_power);
-        ibtVolumeUp = (ImageButton) findViewById(R.id.ibtVolumeUp);
-        ibtVolumeDown = (ImageButton) findViewById(R.id.ibtVolumeDown);
+        ibtGooglePlay = (ImageButton) findViewById(R.id.ibt_google_play);
+        ibtSC1 = (ImageButton) findViewById(R.id.ibt_sc1);
+        ibtSC2 = (ImageButton) findViewById(R.id.ibt_sc2);
+        ibtSC3 = (ImageButton) findViewById(R.id.ibt_sc3);
+        ibtSC4 = (ImageButton) findViewById(R.id.ibt_sc4);
+        ibtSC5 = (ImageButton) findViewById(R.id.ibt_sc5);
+        ibtSC6 = (ImageButton) findViewById(R.id.ibt_sc6);
+        ibtSC7 = (ImageButton) findViewById(R.id.ibt_sc7);
         ivWifi = (ImageView) findViewById(R.id.iv_wifi);
         ivUsb = (ImageView) findViewById(R.id.iv_usb);
-        tvTime = (TextView) findViewById(R.id.tv_time);
-        tvDate = (TextView) findViewById(R.id.tv_date);
-        tvClean = (TextView) findViewById(R.id.tv_clean);
-        flClean = (FrameLayout) findViewById(R.id.fl_clean);
-        gvShortcut = (GridView) findViewById(R.id.gv_shortcut);
         ibtOnline.setOnClickListener(this);
         ibtVideo.setOnClickListener(this);
-        ibtImages.setOnClickListener(this);
         ibtMusic.setOnClickListener(this);
-        ibtBrowser.setOnClickListener(this);
+        ibtGooglePlay.setOnClickListener(this);
         ibtApps.setOnClickListener(this);
-        ibtSettings.setOnClickListener(this);
-        ibtPower.setOnClickListener(this);
-        ibtVolumeUp.setOnClickListener(this);
-        ibtVolumeDown.setOnClickListener(this);
-        flClean.setOnFocusChangeListener(this);
         ibtOnline.setOnFocusChangeListener(this);
         ibtVideo.setOnFocusChangeListener(this);
-        ibtImages.setOnFocusChangeListener(this);
+        ibtGooglePlay.setOnFocusChangeListener(this);
         ibtMusic.setOnFocusChangeListener(this);
-        ibtBrowser.setOnFocusChangeListener(this);
         ibtApps.setOnFocusChangeListener(this);
-        ibtSettings.setOnFocusChangeListener(this);
-        ibtPower.setOnFocusChangeListener(this);
-        ibtVolumeUp.setOnFocusChangeListener(this);
-        ibtVolumeDown.setOnFocusChangeListener(this);
-        flClean.setOnFocusChangeListener(this);
+        ibtSC1.setOnFocusChangeListener(this);
+        ibtSC2.setOnFocusChangeListener(this);
+        ibtSC3.setOnFocusChangeListener(this);
+        ibtSC4.setOnFocusChangeListener(this);
+        ibtSC5.setOnFocusChangeListener(this);
+        ibtSC6.setOnFocusChangeListener(this);
+        ibtSC7.setOnFocusChangeListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        loadShortcut();
+        showShortcut();
     }
 
     @Override
@@ -125,44 +118,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         unregister();
     }
 
-    private void loadShortcut(){
-        AppsDao appsDao = AppsDao.getInstance(Application.getContext());
-        final List<AppInfo> appInfoList = appsDao.queryDataByShortcut(F.app_type.shortcut);
-        AppsShortcutAdapter adapter = new AppsShortcutAdapter(this, appInfoList);
-        gvShortcut.setAdapter(adapter);
-        gvShortcut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position < appInfoList.size()){
-                    String packageName = appInfoList.get(position).getPackageName();
-                    AppUtils.launchApp(Application.getContext() , packageName);
-                }else {
-                    Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
-                    intent.putExtra("shortcut" ,F.app_type.shortcut);
-                    startActivity(intent);
-                }
-            }
-        });
-        gvShortcut.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Zoom.zoomIn10_11_10(view);
-            }
+    private void showShortcut(){
+        loadShortcut(ibtSC1, F.app_type.shortcut1);
+        loadShortcut(ibtSC2, F.app_type.shortcut2);
+        loadShortcut(ibtSC3, F.app_type.shortcut3);
+        loadShortcut(ibtSC4, F.app_type.shortcut4);
+        loadShortcut(ibtSC5, F.app_type.shortcut5);
+        loadShortcut(ibtSC6, F.app_type.shortcut6);
+        loadShortcut(ibtSC7, F.app_type.shortcut7);
+    }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+    private void loadShortcut(final ImageButton imageButton, final String shortcut){
+        Observable.just(shortcut)
+                .subscribeOn(Schedulers.io())
+                .map(new Func1<String, AppInfo>() {
+                    @Override
+                    public AppInfo call(String s) {
+                        List<AppInfo> list = appsDao.showShortcutData(s);
+                        if(list.size() == 1){
+                            return list.get(0);
+                        }else {
+                            return null;
+                        }
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<AppInfo>() {
+                    @Override
+                    public void call(final AppInfo appInfo) {
+                        if (appInfo != null) {
+                            imageButton.setImageDrawable(AppUtils.getIcon(MainActivity.this , appInfo.getPackageName()));
+                            imageButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    AppUtils.launchApp(MainActivity.this , appInfo.getPackageName());
+                                }
+                            });
+                            imageButton.setOnLongClickListener(new View.OnLongClickListener() {
+                                @Override
+                                public boolean onLongClick(View v) {
+                                    appInfo.setShortcut("1");
+                                    appsDao.updateShortcut(appInfo);
+                                    Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
+                                    intent.putExtra("shortcut" ,shortcut);
+                                    startActivity(intent);
+                                    return true;
+                                }
+                            });
+                        }else {
+                            imageButton.setImageResource(R.drawable.add_72);
+                            imageButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
+                                    intent.putExtra("shortcut" ,shortcut);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }
+                });
 
-            }
-        });
-        gvShortcut.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this , ShortcutSelectActivity.class);
-                intent.putExtra("shortcut" ,F.app_type.shortcut);
-                startActivity(intent);
-                return false;
-            }
-        });
     }
 
     @Override
@@ -178,35 +194,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent3.putExtra("currentItem",2);
                 startActivity(intent3);
                 break;
-            case R.id.ibt_images:
-                AppUtils.launchApp(this, F.packageName.gallery);
-                break;
             case R.id.ibt_music:
                 Intent intent = new Intent(MainActivity.this , AppsActivity.class);
                 intent.putExtra("currentItem",3);
                 startActivity(intent);
                 break;
-            case R.id.ibt_browser:
-                AppUtils.launchApp(this, F.packageName.browser);
-                break;
             case R.id.ibt_apps:
                 startActivity(new Intent(MainActivity.this , AppsActivity.class));
                 break;
-            case R.id.ibt_settings:
-                AppUtils.launchApp(this, F.packageName.setting);
+            case R.id.ibt_google_play:
+                AppUtils.launchApp(this, F.packageName.google_play);
                 break;
-            case R.id.ibt_power:
-                showShutDownDialog();
-                break;
-            case R.id.ibtVolumeUp:
-                audioManager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
-                break;
-            case R.id.ibtVolumeDown:
-                audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
-                break;
-            case R.id.fl_clean:
-                SysUtils.cleanMemory(MainActivity.this);
-                break;
+
             default:
                 break;
         }
@@ -215,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         if(hasFocus){
-            Zoom.zoomIn10_11_10(v);
+            Zoom.zoomIn09_10(v);
         }
     }
 
@@ -239,48 +238,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         builder.show();
-    }
-
-    private Handler handler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 1:
-                    tvTime.setText((String)msg.obj);
-                    break;
-                case 2:
-                    tvDate.setText((String)msg.obj);
-                    break;
-                case 3:
-                    tvClean.setText(msg.obj + "%" +"\n" + getString(R.string.clean));
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
-
-    private void showTimeAndData() {
-        Application.getThreadPool().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    while (true) {
-                        Thread.sleep(1000);
-                        Date d = new Date(System.currentTimeMillis());
-                        String time = new SimpleDateFormat("hh:mm a").format(d);
-                        String date = new SimpleDateFormat("EEEE\n dd MMMM").format(d);
-                        String memoryRate = SysUtils.getAvailMemory(MainActivity.this)+"";
-                        handler.obtainMessage(1, time).sendToTarget();
-                        handler.obtainMessage(2, date).sendToTarget();
-                        handler.obtainMessage(3, memoryRate).sendToTarget();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     private void registerReceiver (){

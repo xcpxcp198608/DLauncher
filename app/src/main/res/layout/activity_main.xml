@@ -5,58 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="60dp"
+    android:paddingRight="60dp"
     tools:context="com.px.dlauncher.activity.MainActivity">
-
-    <include layout="@layout/main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"/>
-
-    <GridView
-        android:layout_marginTop="20dp"
-        android:paddingLeft="55dp"
-        android:paddingRight="55dp"
-        android:numColumns="10"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        android:id="@+id/gv_shortcut"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
 
     <RelativeLayout
         android:layout_marginTop="15dp"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
         android:layout_marginBottom="10dp"
         android:background="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="36dp">
+        android:layout_height="60dp">
 
-        <ImageButton
-            android:id="@+id/ibt_power"
-            android:background="@drawable/bg_power"
-            android:src="@drawable/ic_power_settings_new_red_500_36dp"
-            android:layout_width="36dp"
-            android:layout_height="36dp" />
-
-        <ImageButton
-            android:layout_marginLeft="40dp"
-            android:layout_toRightOf="@id/ibt_power"
-            android:id="@+id/ibtVolumeDown"
-            android:background="@drawable/bg_power"
-            android:src="@drawable/ic_volume_down_white_36dp"
-            android:layout_width="36dp"
-            android:layout_height="36dp" />
-
-        <ImageButton
-            android:visibility="gone"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ibtVolumeDown"
-            android:id="@+id/ibtVolumeUp"
-            android:background="@drawable/bg_power"
-            android:src="@drawable/ic_volume_up_white_36dp"
-            android:layout_width="36dp"
-            android:layout_height="36dp" />
+        <TextView
+            android:textColor="@color/colorGreen4"
+            android:text="Smart TV"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
         <ImageView
             android:id="@+id/iv_wifi"
@@ -76,5 +42,157 @@
             android:layout_height="36dp" />
 
     </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_weight="1.8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageButton
+            android:id="@+id/ibt_online"
+            android:src="@drawable/online3"
+            android:background="@drawable/bg_browser"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/ibt_video"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/vod"
+            android:background="@drawable/bg_green"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/ibt_music"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ktv"
+            android:background="@drawable/bg_yellow"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/ibt_google_play"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/google_play"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc1"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc2"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc3"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc4"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc5"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc6"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc7"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/ibt_apps"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/apps3"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Android 5.1版本系统"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="120dp" />
 
 </LinearLayout>

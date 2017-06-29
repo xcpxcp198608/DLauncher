@@ -42,7 +42,7 @@ public class ShortcutSelectActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        list = appsDao.queryData();
+        list = appsDao.showShortcutData();
         shortcutAdapter = new ShortcutAdapter(this , list, shortcut);
         gvShortcut.setAdapter(shortcutAdapter);
         gvShortcut.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -63,7 +63,7 @@ public class AppsActivity extends AppCompatActivity {
         viewPager.setAdapter(fragmentAdapter);
 
         String [] titles = {getString(R.string.apps) ,getString(R.string.games) ,
-                getString(R.string.videos), getString(R.string.music)};
+                getString(R.string.videos), "KTV"};
         viewPagerIndicator.setItem(7,0f,0f);
         viewPagerIndicator.setTextTitle(titles , Color.TRANSPARENT
                 , R.drawable.icon_bg_selected ,40, 0,0);

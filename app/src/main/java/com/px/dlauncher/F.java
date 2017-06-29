@@ -9,6 +9,13 @@ public final class F {
         public static final String online = "online";
         public static final String music = "music";
         public static final String shortcut = "shortcut";
+        public static final String shortcut1 = "shortcut1";
+        public static final String shortcut2 = "shortcut2";
+        public static final String shortcut3 = "shortcut3";
+        public static final String shortcut4 = "shortcut4";
+        public static final String shortcut5 = "shortcut5";
+        public static final String shortcut6 = "shortcut6";
+        public static final String shortcut7 = "shortcut7";
     }
 
     public static final class packageName {
