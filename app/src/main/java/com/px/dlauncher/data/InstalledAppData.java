@@ -40,7 +40,7 @@ public class InstalledAppData implements Runnable {
             }
             ResolveInfo resolveInfo = iterator.next();
             String packageName = resolveInfo.activityInfo.packageName;
-            if(!F.packageName.setting.equals(packageName) && !F.packageName.app.equals(packageName)){
+            if(!F.packageName.app.equals(packageName)){
                 AppInfo appInfo = new AppInfo();
                 appInfo.setLabel(resolveInfo.loadLabel(packageManager).toString());
                 appInfo.setPackageName(packageName);
