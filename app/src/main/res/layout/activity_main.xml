@@ -188,11 +188,11 @@
     </LinearLayout>
 
     <TextView
-        android:text="Android 5.1版本系统"
+        tools:text=" "
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="100dp" />
 
 </LinearLayout>
