@@ -51,7 +51,9 @@
 
         <ImageButton
             android:id="@+id/ibt_online"
-            android:src="@drawable/online3"
+            android:src="@drawable/online4"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
             android:background="@drawable/bg_browser"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -60,7 +62,9 @@
         <ImageButton
             android:id="@+id/ibt_video"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/vod"
+            android:src="@drawable/movie4"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
             android:background="@drawable/bg_green"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -69,7 +73,9 @@
         <ImageButton
             android:id="@+id/ibt_music"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ktv"
+            android:src="@drawable/ktv4"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
             android:background="@drawable/bg_yellow"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -78,7 +84,9 @@
         <ImageButton
             android:id="@+id/ibt_google_play"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/google_play"
+            android:src="@drawable/googleplay4"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
             android:background="@drawable/bg_online"
             android:layout_weight="1"
             android:layout_width="0dp"
