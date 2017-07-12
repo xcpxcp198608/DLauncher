@@ -16,6 +16,9 @@ public final class F {
         public static final String shortcut5 = "shortcut5";
         public static final String shortcut6 = "shortcut6";
         public static final String shortcut7 = "shortcut7";
+        public static final String shortcut8 = "shortcut8";
+        public static final String shortcut9 = "shortcut9";
+        public static final String shortcut10 = "shortcut10";
     }
 
     public static final class packageName {

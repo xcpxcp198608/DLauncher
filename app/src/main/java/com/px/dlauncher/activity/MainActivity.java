@@ -51,10 +51,11 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener ,
+        View.OnFocusChangeListener {
 
-    private ImageButton ibtOnline, ibtVideo, ibtMusic, ibtApps,ibtGooglePlay, ibtSC1, ibtSC2, ibtSC3, ibtSC4
-            , ibtSC5, ibtSC6, ibtSC7;
+    private ImageButton ibtApps,ibtGooglePlay, ibtSC1, ibtSC2,
+            ibtSC3, ibtSC4, ibtSC5, ibtSC6, ibtSC7, ibtSC8, ibtSC9, ibtSC10;
     private ImageView ivWifi, ivUsb;
     private NetworkStatusReceiver networkStatusReceiver;
     private WifiStatusReceiver wifiStatusReceiver;
@@ -73,9 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        ibtOnline = (ImageButton) findViewById(R.id.ibt_online);
-        ibtVideo = (ImageButton) findViewById(R.id.ibt_video);
-        ibtMusic = (ImageButton) findViewById(R.id.ibt_music);
         ibtApps = (ImageButton) findViewById(R.id.ibt_apps);
         ibtGooglePlay = (ImageButton) findViewById(R.id.ibt_google_play);
         ibtSC1 = (ImageButton) findViewById(R.id.ibt_sc1);
@@ -85,17 +83,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibtSC5 = (ImageButton) findViewById(R.id.ibt_sc5);
         ibtSC6 = (ImageButton) findViewById(R.id.ibt_sc6);
         ibtSC7 = (ImageButton) findViewById(R.id.ibt_sc7);
+        ibtSC8 = (ImageButton) findViewById(R.id.ibt_sc8);
+        ibtSC9 = (ImageButton) findViewById(R.id.ibt_sc9);
+        ibtSC10 = (ImageButton) findViewById(R.id.ibt_sc10);
         ivWifi = (ImageView) findViewById(R.id.iv_wifi);
         ivUsb = (ImageView) findViewById(R.id.iv_usb);
-        ibtOnline.setOnClickListener(this);
-        ibtVideo.setOnClickListener(this);
-        ibtMusic.setOnClickListener(this);
         ibtGooglePlay.setOnClickListener(this);
         ibtApps.setOnClickListener(this);
-        ibtOnline.setOnFocusChangeListener(this);
-        ibtVideo.setOnFocusChangeListener(this);
         ibtGooglePlay.setOnFocusChangeListener(this);
-        ibtMusic.setOnFocusChangeListener(this);
         ibtApps.setOnFocusChangeListener(this);
         ibtSC1.setOnFocusChangeListener(this);
         ibtSC2.setOnFocusChangeListener(this);
@@ -104,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibtSC5.setOnFocusChangeListener(this);
         ibtSC6.setOnFocusChangeListener(this);
         ibtSC7.setOnFocusChangeListener(this);
+        ibtSC8.setOnFocusChangeListener(this);
+        ibtSC9.setOnFocusChangeListener(this);
+        ibtSC10.setOnFocusChangeListener(this);
     }
 
     @Override
@@ -126,6 +124,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loadShortcut(ibtSC5, F.app_type.shortcut5);
         loadShortcut(ibtSC6, F.app_type.shortcut6);
         loadShortcut(ibtSC7, F.app_type.shortcut7);
+        loadShortcut(ibtSC8, F.app_type.shortcut8);
+        loadShortcut(ibtSC9, F.app_type.shortcut9);
+        loadShortcut(ibtSC10, F.app_type.shortcut10);
     }
 
     private void loadShortcut(final ImageButton imageButton, final String shortcut){
@@ -184,21 +185,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ibt_online:
-                Intent intent1 = new Intent(MainActivity.this , AppsActivity.class);
-                intent1.putExtra("currentItem",1);
-                startActivity(intent1);
-                break;
-            case R.id.ibt_video:
-                Intent intent3 = new Intent(MainActivity.this , AppsActivity.class);
-                intent3.putExtra("currentItem",2);
-                startActivity(intent3);
-                break;
-            case R.id.ibt_music:
-                Intent intent = new Intent(MainActivity.this , AppsActivity.class);
-                intent.putExtra("currentItem",3);
-                startActivity(intent);
-                break;
             case R.id.ibt_apps:
                 startActivity(new Intent(MainActivity.this , AppsActivity.class));
                 break;
@@ -216,28 +202,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(hasFocus){
             Zoom.zoomIn09_10(v);
         }
-    }
-
-    private void showShutDownDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Shutdown now?");
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                try {
-                    Runtime.getRuntime().exec(new String[]{"su","-c","reboot -p"});
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
     }
 
     private void registerReceiver (){

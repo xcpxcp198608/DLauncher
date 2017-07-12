@@ -50,8 +50,7 @@
         android:layout_height="0dp">
 
         <ImageButton
-            android:id="@+id/ibt_online"
-            android:src="@drawable/online4"
+            android:id="@+id/ibt_sc1"
             android:scaleType="fitCenter"
             android:padding="20dp"
             android:background="@drawable/bg_browser"
@@ -60,9 +59,8 @@
             android:layout_height="match_parent" />
 
         <ImageButton
-            android:id="@+id/ibt_video"
+            android:id="@+id/ibt_sc2"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/movie4"
             android:scaleType="fitCenter"
             android:padding="20dp"
             android:background="@drawable/bg_green"
@@ -71,9 +69,8 @@
             android:layout_height="match_parent" />
 
         <ImageButton
-            android:id="@+id/ibt_music"
+            android:id="@+id/ibt_sc3"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ktv4"
             android:scaleType="fitCenter"
             android:padding="20dp"
             android:background="@drawable/bg_yellow"
@@ -104,43 +101,7 @@
             android:scaleType="fitCenter"
             android:padding="20dp"
             android:cropToPadding="true"
-            android:id="@+id/ibt_sc1"
-            android:src="@drawable/add"
-            android:background="@drawable/bg_online"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-
-        <ImageButton
-            android:scaleType="fitCenter"
-            android:padding="20dp"
-            android:cropToPadding="true"
-            android:id="@+id/ibt_sc2"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/add"
-            android:background="@drawable/bg_online"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-
-        <ImageButton
-            android:scaleType="fitCenter"
-            android:padding="20dp"
-            android:cropToPadding="true"
-            android:id="@+id/ibt_sc3"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/add"
-            android:background="@drawable/bg_online"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-
-        <ImageButton
-            android:scaleType="fitCenter"
-            android:padding="20dp"
-            android:cropToPadding="true"
             android:id="@+id/ibt_sc4"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/add"
             android:background="@drawable/bg_online"
             android:layout_weight="1"
@@ -176,6 +137,42 @@
             android:padding="20dp"
             android:cropToPadding="true"
             android:id="@+id/ibt_sc7"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc8"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc9"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/add"
+            android:background="@drawable/bg_online"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:cropToPadding="true"
+            android:id="@+id/ibt_sc10"
             android:layout_marginLeft="10dp"
             android:src="@drawable/add"
             android:background="@drawable/bg_online"
