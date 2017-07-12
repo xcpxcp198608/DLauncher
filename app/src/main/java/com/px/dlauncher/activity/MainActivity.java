@@ -167,7 +167,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                             });
                         }else {
-                            imageButton.setImageResource(R.drawable.add_72);
+                            if(imageButton.getId() == R.id.ibt_sc1 || imageButton.getId() == R.id.ibt_sc2 ||
+                                    imageButton.getId() == R.id.ibt_sc3) {
+                                imageButton.setImageResource(0);
+                            }else{
+                                imageButton.setImageResource(R.drawable.add_72);
+                            }
                             imageButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
