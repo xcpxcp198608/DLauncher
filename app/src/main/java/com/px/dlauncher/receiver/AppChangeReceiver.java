@@ -37,6 +37,7 @@ public class AppChangeReceiver extends BroadcastReceiver {
                             AppInfo appInfo = new AppInfo();
                             appInfo.setPackageName(s);
                             appInfo.setLabel(AppUtils.getLabelName(mContext , s));
+                            appInfo.setShortcut("1");
                             appsDao.insertOrUpdateData(appInfo);
                             return null;
                         }
