@@ -59,7 +59,7 @@ public class ShortcutAdapter extends BaseAdapter {
         }
         AppInfo appInfo = list.get(position);
         viewHolder.ivIcon.setImageDrawable(AppUtils.getIcon(context,appInfo.getPackageName()));
-        viewHolder.tvLabel.setText(appInfo.getLabel());
+        viewHolder.tvLabel.setText(AppUtils.getLabelName(context, appInfo.getPackageName()));
         if(shortcut.equals(appInfo.getShortcut())){
             viewHolder.checkBox.setChecked(true);
         }else {
