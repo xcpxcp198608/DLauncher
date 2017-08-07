@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void shutdown(){
         try {
-            Intent intent =new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
+            Intent intent = new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }catch (SecurityException e){

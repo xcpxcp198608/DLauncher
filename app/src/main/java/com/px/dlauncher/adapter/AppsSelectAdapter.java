@@ -60,7 +60,7 @@ public class AppsSelectAdapter extends BaseAdapter {
         }
         AppInfo appInfo = list.get(position);
         viewHolder.ivIcon.setImageDrawable(AppUtils.getIcon(context,appInfo.getPackageName()));
-        viewHolder.tvLabel.setText(appInfo.getLabel());
+        viewHolder.tvLabel.setText(AppUtils.getLabelName(context, appInfo.getPackageName()));
         if(appType.equals(appInfo.getType())){
             viewHolder.checkBox.setChecked(true);
         }else {

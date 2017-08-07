@@ -54,7 +54,7 @@ public class AppsAdapter extends BaseAdapter {
         }
         AppInfo appInfo = list.get(position);
         viewHolder.ivIcon.setImageDrawable(AppUtils.getIcon(context , appInfo.getPackageName()));
-        viewHolder.tvLabel.setText(appInfo.getLabel());
+        viewHolder.tvLabel.setText(AppUtils.getLabelName(context, appInfo.getPackageName()));
         return convertView;
     }
 
