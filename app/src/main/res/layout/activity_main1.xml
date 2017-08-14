@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="60dp"
+    android:paddingRight="60dp"
+    android:paddingBottom="60dp"
+    tools:context="com.px.dlauncher.activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/colorGreen4"
+            android:text="Smart TV"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/ibtSettings"
+            android:src="@drawable/bg_settings"
+            android:scaleType="centerCrop"
+            android:background="@android:color/transparent"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageView
+            android:id="@+id/iv_wifi"
+            android:src="@drawable/wifi0"
+            android:layout_toLeftOf="@id/ibtSettings"
+            android:layout_marginLeft="10dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/iv_usb"
+            android:layout_toLeftOf="@id/iv_wifi"
+            android:src="@drawable/ic_usb_white_36dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+        <TextView
+            android:id="@+id/tvTime"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:gravity="center"
+            tools:text="11:11AM"
+            android:layout_toLeftOf="@id/iv_usb"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <ImageButton
+                    android:scaleType="fitCenter"
+                    android:cropToPadding="true"
+                    android:padding="30dp"
+                    android:id="@+id/ibtSc1"
+                    android:background="@drawable/bg_sc1"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <ImageButton
+                    android:scaleType="fitCenter"
+                    android:cropToPadding="true"
+                    android:padding="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bg_sc2"
+                    android:id="@+id/ibtSc2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <ImageButton
+                    android:scaleType="fitCenter"
+                    android:cropToPadding="true"
+                    android:padding="30dp"
+                    android:background="@drawable/bg_sc3"
+                    android:id="@+id/ibtSc3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <ImageButton
+                    android:scaleType="fitCenter"
+                    android:cropToPadding="true"
+                    android:padding="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bg_sc4"
+                    android:id="@+id/ibtSc4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <ImageButton
+                    android:scaleType="fitCenter"
+                    android:cropToPadding="true"
+                    android:padding="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bg_sc5"
+                    android:id="@+id/ibtSc5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/ibtYoutube"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:src="@drawable/youtube"
+                android:background="@drawable/bg_youtube"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/ibtGooglePlay"
+                android:src="@drawable/google_play"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:background="@drawable/bg_app"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/ibtApps"
+                android:padding="10dp"
+                android:cropToPadding="true"
+                android:src="@drawable/apps3"
+                android:background="@drawable/bg_app"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

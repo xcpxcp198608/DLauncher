@@ -3,5 +3,5 @@
     <item android:drawable="@drawable/bg_app_focus" android:state_pressed="true"/>
     <item android:drawable="@drawable/bg_app_focus" android:state_selected="true"/>
     <item android:drawable="@drawable/bg_app_focus" android:state_focused="true"/>
-    <item android:drawable="@color/colorPurple3" />
+    <item android:drawable="@drawable/bg_app_normal" />
 </selector>
