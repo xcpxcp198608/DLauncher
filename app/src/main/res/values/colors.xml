@@ -10,6 +10,13 @@
     <color name="colorGreen2">#4af2e9</color>
     <color name="colorPink">#e154f4</color>
     <color name="colorRed">#ff0000</color>
+    <color name="colorSc2">#ffb0de</color>
+    <color name="colorSc3">#91e1fa</color>
+    <color name="colorSc4">#f5e895</color>
+    <color name="colorSc5">#fcb09a</color>
+    <color name="colorSc6">#ffd7b7</color>
+    <color name="colorSc7">#6bdcb9</color>
+    <color name="colorSc8">#a0ea6c</color>
     <color name="colorOrange1">#f78229</color>
     <color name="colorGreen5">#e1f242</color>
     <color name="colorPurple2">#5b36b7</color>
@@ -18,11 +25,14 @@
     <color name="colorPurple3">#8f1acb</color>
     <color name="colorRed3">#ff017e</color>
     <color name="colorGreen3">#00a201</color>
+    <color name="colorGreen6">#fcd313</color>
     <color name="colorGreen">#00ff00</color>
     <color name="colorYellow">#f9dc03</color>
     <color name="colorBlue3">#075ac0</color>
     <color name="colorBlue4">#030c43</color>
-    <color name="colorGreen4">#aed500</color>
+    <color name="colorBlue5">#386db1</color>
+    <color name="colorBlue6">#579ed4</color>
+    <color name="colorGreen4">#22d500</color>
     <color name="colorOrange">#f1a727</color>
     <color name="transparent">#00000000</color>
 
