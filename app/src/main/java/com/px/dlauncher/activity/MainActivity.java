@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
@@ -20,13 +19,13 @@ import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.px.dlauncher.Application;
 import com.px.dlauncher.F;
 import com.px.dlauncher.R;
 import com.px.dlauncher.adapter.AppsShortcutAdapter;
-import com.px.dlauncher.adapter.ShortcutAdapter;
 import com.px.dlauncher.animator.Zoom;
 import com.px.dlauncher.beans.AppInfo;
 import com.px.dlauncher.beans.UsbEvent;
@@ -38,8 +37,7 @@ import com.px.dlauncher.utils.Logger;
 import com.px.dlauncher.utils.RxBus;
 import com.px.dlauncher.utils.SysUtils;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -50,10 +48,11 @@ import rx.functions.Action1;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener {
 
-    private ImageButton ibtOnline, ibtVideo, ibtImages, ibtMusic, ibtBrowser, ibtApps,
-            ibtSettings, ibtPower, ibtVolumeUp, ibtVolumeDown;
+    private ImageView ivGooglePlay, ivYoutube, ivBrowser, ivFile, ivMedia;
+    private LinearLayout llGooglePlay, llYoutube, llBrowser, llFile, llMedia, llApps, llSettings;
+    private ImageButton ibtPower, ibtVolumeUp, ibtVolumeDown;
     private ImageView ivWifi, ivUsb;
-    private TextView tvTime, tvDate, tvClean;
+    private TextView tvGooglePlay, tvYoutube, tvBrowser, tvFile, tvMedia, tvTime, tvDate, tvClean;
     private FrameLayout flClean;
     private GridView gvShortcut;
     private NetworkStatusReceiver networkStatusReceiver;
@@ -72,13 +71,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        ibtOnline = (ImageButton) findViewById(R.id.ibt_online);
-        ibtVideo = (ImageButton) findViewById(R.id.ibt_video);
-        ibtImages = (ImageButton) findViewById(R.id.ibt_images);
-        ibtMusic = (ImageButton) findViewById(R.id.ibt_music);
-        ibtBrowser = (ImageButton) findViewById(R.id.ibt_browser);
-        ibtApps = (ImageButton) findViewById(R.id.ibt_apps);
-        ibtSettings = (ImageButton) findViewById(R.id.ibt_settings);
+        llGooglePlay = (LinearLayout) findViewById(R.id.ll_google_play);
+        llYoutube = (LinearLayout) findViewById(R.id.ll_youtube);
+        llBrowser = (LinearLayout) findViewById(R.id.ll_browser);
+        llFile = (LinearLayout) findViewById(R.id.ll_file);
+        llMedia = (LinearLayout) findViewById(R.id.ll_media);
+        llApps = (LinearLayout) findViewById(R.id.ll_apps);
+        llSettings = (LinearLayout) findViewById(R.id.ll_settings);
+        ivGooglePlay = (ImageView) findViewById(R.id.ibt_google_play);
+        ivYoutube = (ImageView) findViewById(R.id.ibt_youtube);
+        ivBrowser = (ImageView) findViewById(R.id.ibt_browser);
+        ivFile = (ImageView) findViewById(R.id.ibt_file);
+        ivMedia = (ImageView) findViewById(R.id.ibt_media);
+//        ivApps = (ImageView) findViewById(R.id.ibt_apps);
+//        ivSettings = (ImageView) findViewById(R.id.ibt_settings);
+        tvGooglePlay = (TextView) findViewById(R.id.tv_google_play);
+        tvYoutube = (TextView) findViewById(R.id.tv_youtube);
+        tvBrowser = (TextView) findViewById(R.id.tv_browser);
+        tvFile = (TextView) findViewById(R.id.tv_file);
+        tvMedia = (TextView) findViewById(R.id.tv_media);
+        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.google_play));
+        ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube));
+        ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.browser));
+        ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file));
+        ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.player));
+        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.google_play));
+        tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube));
+        tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.browser));
+        tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file));
+        tvMedia.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.player));
         ibtPower = (ImageButton) findViewById(R.id.ibt_power);
         ibtVolumeUp = (ImageButton) findViewById(R.id.ibtVolumeUp);
         ibtVolumeDown = (ImageButton) findViewById(R.id.ibtVolumeDown);
@@ -89,24 +110,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvClean = (TextView) findViewById(R.id.tv_clean);
         flClean = (FrameLayout) findViewById(R.id.fl_clean);
         gvShortcut = (GridView) findViewById(R.id.gv_shortcut);
-        ibtOnline.setOnClickListener(this);
-        ibtVideo.setOnClickListener(this);
-        ibtImages.setOnClickListener(this);
-        ibtMusic.setOnClickListener(this);
-        ibtBrowser.setOnClickListener(this);
-        ibtApps.setOnClickListener(this);
-        ibtSettings.setOnClickListener(this);
+        llGooglePlay.setOnClickListener(this);
+        llYoutube.setOnClickListener(this);
+        llBrowser.setOnClickListener(this);
+        llFile.setOnClickListener(this);
+        llMedia.setOnClickListener(this);
+        llApps.setOnClickListener(this);
+        llSettings.setOnClickListener(this);
         ibtPower.setOnClickListener(this);
         ibtVolumeUp.setOnClickListener(this);
         ibtVolumeDown.setOnClickListener(this);
         flClean.setOnFocusChangeListener(this);
-        ibtOnline.setOnFocusChangeListener(this);
-        ibtVideo.setOnFocusChangeListener(this);
-        ibtImages.setOnFocusChangeListener(this);
-        ibtMusic.setOnFocusChangeListener(this);
-        ibtBrowser.setOnFocusChangeListener(this);
-        ibtApps.setOnFocusChangeListener(this);
-        ibtSettings.setOnFocusChangeListener(this);
+        llGooglePlay.setOnFocusChangeListener(this);
+        llYoutube.setOnFocusChangeListener(this);
+        llBrowser.setOnFocusChangeListener(this);
+        llFile.setOnFocusChangeListener(this);
+        llMedia.setOnFocusChangeListener(this);
+        llApps.setOnFocusChangeListener(this);
+        llSettings.setOnFocusChangeListener(this);
         ibtPower.setOnFocusChangeListener(this);
         ibtVolumeUp.setOnFocusChangeListener(this);
         ibtVolumeDown.setOnFocusChangeListener(this);
@@ -168,31 +189,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ibt_online:
-                Intent intent1 = new Intent(MainActivity.this , AppsActivity.class);
-                intent1.putExtra("currentItem",1);
-                startActivity(intent1);
+            case R.id.ll_google_play:
+                AppUtils.launchApp(MainActivity.this, F.packageName.google_play);
                 break;
-            case R.id.ibt_video:
-                Intent intent3 = new Intent(MainActivity.this , AppsActivity.class);
-                intent3.putExtra("currentItem",2);
-                startActivity(intent3);
+            case R.id.ll_youtube:
+                AppUtils.launchApp(MainActivity.this, F.packageName.youtube);
                 break;
-            case R.id.ibt_images:
-                AppUtils.launchApp(this, F.packageName.gallery);
+            case R.id.ll_browser:
+                AppUtils.launchApp(MainActivity.this, F.packageName.browser);
                 break;
-            case R.id.ibt_music:
-                Intent intent = new Intent(MainActivity.this , AppsActivity.class);
-                intent.putExtra("currentItem",3);
-                startActivity(intent);
+            case R.id.ll_file:
+                AppUtils.launchApp(MainActivity.this, F.packageName.file);
                 break;
-            case R.id.ibt_browser:
-                AppUtils.launchApp(this, F.packageName.browser);
+            case R.id.ll_media:
+                AppUtils.launchApp(MainActivity.this, F.packageName.player);
                 break;
-            case R.id.ibt_apps:
+            case R.id.ll_apps:
                 startActivity(new Intent(MainActivity.this , AppsActivity.class));
                 break;
-            case R.id.ibt_settings:
+            case R.id.ll_settings:
                 AppUtils.launchApp(this, F.packageName.setting);
                 break;
             case R.id.ibt_power:
@@ -221,14 +236,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showShutDownDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Shutdown now?");
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        builder.setMessage(getString(R.string.shutdown));
+        builder.setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 shutdown();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -275,8 +290,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     while (true) {
                         Thread.sleep(1000);
                         Date d = new Date(System.currentTimeMillis());
-                        String time = new SimpleDateFormat("hh:mm a").format(d);
-                        String date = new SimpleDateFormat("EEEE\n dd MMMM").format(d);
+                        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(MainActivity.this);
+                        DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(MainActivity.this);
+//                        String time = new SimpleDateFormat("hh:mm A").format(d);
+//                        String date = new SimpleDateFormat("EEEE\n dd MMMM").format(d);
+                        String time = timeFormat.format(d);
+                        String date = dateFormat.format(d);
                         String memoryRate = SysUtils.getAvailMemory(MainActivity.this)+"";
                         handler.obtainMessage(1, time).sendToTarget();
                         handler.obtainMessage(2, date).sendToTarget();

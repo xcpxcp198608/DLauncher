@@ -1,6 +1,8 @@
 package com.px.dlauncher;
 
 
+import android.os.Environment;
+
 public final class F {
 
     public static final class app_type {
@@ -22,4 +24,9 @@ public final class F {
         public static final String kodi = "org.xbmc.kodi";
         public static final String player = "com.droidlogic.videoplayer";
     }
+    public static final class path {
+        public static final String logcat = Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/Android/data/com.px.dlauncher/files/logcat/";
+        }
+
 }

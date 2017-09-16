@@ -13,9 +13,9 @@ android {
     }
     signingConfigs {
         relealse {
-            storeFile file("KeyStore/234.jks")
+            storeFile file("KeyStore/am.keystore")
             storePassword  KEYSTORE_PASSWORD
-            keyAlias "234"
+            keyAlias "123"
             keyPassword KEY_PASSWORD
         }
     }

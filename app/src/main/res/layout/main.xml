@@ -20,32 +20,100 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
-            <ImageButton
-                android:id="@+id/ibt_online"
+            <LinearLayout
+                android:id="@+id/ll_google_play"
                 android:layout_margin="5dp"
-                android:src="@drawable/online2"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_weight="1"
                 android:background="@drawable/bg_online"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/ibt_video"
+                <ImageView
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ibt_google_play"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"/>
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="googleplay"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_google_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_youtube"
                 android:layout_margin="5dp"
-                android:src="@drawable/video2"
                 android:background="@drawable/bg_video"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/ibt_images"
+                <ImageView
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ibt_youtube"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="youtube"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_youtube"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_browser"
                 android:layout_margin="5dp"
-                android:src="@drawable/images2"
-                android:background="@drawable/bg_image"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_weight="1"
+                android:background="@drawable/bg_image"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ibt_browser"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="browser"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_browser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -54,33 +122,99 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
-            <ImageButton
-                android:id="@+id/ibt_music"
-                android:layout_margin="5dp"
-                android:src="@drawable/music2"
+            <LinearLayout
+                android:id="@+id/ll_file"
                 android:background="@drawable/bg_music"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/ibt_browser"
+                <ImageView
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ibt_file"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="file"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_media"
                 android:layout_margin="5dp"
-                android:src="@drawable/browser2"
+                android:orientation="vertical"
                 android:background="@drawable/bg_browser"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+                <ImageView
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ibt_media"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="media"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_media"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/ibt_apps"
-                android:layout_margin="5dp"
-                android:src="@drawable/apps2"
+            <LinearLayout
+                android:id="@+id/ll_apps"
+                android:orientation="vertical"
                 android:background="@drawable/bg_app"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+                <ImageView
+                    android:scaleType="centerInside"
+                    android:id="@+id/ibt_apps"
+                    android:src="@drawable/apps"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
 
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    tools:text="apps"
+                    android:text="@string/apps"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:id="@+id/tv_apps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -111,7 +245,7 @@
             android:text="Monday \n01 June"
             android:textColor="@android:color/white"
             android:background="@color/colorGreen3"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -145,14 +279,39 @@
                 android:layout_height="match_parent" />
         </FrameLayout>
 
-        <ImageButton
-            android:id="@+id/ibt_settings"
+        <LinearLayout
+            android:id="@+id/ll_settings"
             android:layout_margin="5dp"
-            android:src="@drawable/setting2"
             android:background="@drawable/bg_setting"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_weight="1.6"
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="0dp" >
+
+            <ImageView
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:id="@+id/ibt_settings"
+                android:src="@drawable/settings"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:layout_marginBottom="5dp"
+                tools:text="fsdfdsfds"
+                android:text="@string/settings"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:id="@+id/tv_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </LinearLayout>
 

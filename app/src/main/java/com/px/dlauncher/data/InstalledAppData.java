@@ -53,9 +53,9 @@ public class InstalledAppData implements Runnable {
                 }
                 appInfo.setShortcut("1");
                 list.add(appInfo);
-                if(F.packageName.google_play.equals(packageName) || F.packageName.file.equals(packageName)){
-                    appInfo.setShortcut(F.app_type.shortcut);
-                }
+//                if(F.packageName.google_play.equals(packageName) || F.packageName.file.equals(packageName)){
+//                    appInfo.setShortcut(F.app_type.shortcut);
+//                }
                 if(!appsDao.isExists(appInfo)) {
                     appsDao.insertData(appInfo);
                 }
