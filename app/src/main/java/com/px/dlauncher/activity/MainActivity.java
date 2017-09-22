@@ -208,7 +208,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this , AppsActivity.class));
                 break;
             case R.id.ll_settings:
-                AppUtils.launchApp(this, F.packageName.setting);
+                Intent intent = new Intent();
+                intent.setClassName("com.android.tv.settings", "com.android.tv.settings.MainSettings");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
             case R.id.ibt_power:
                 showShutDownDialog();

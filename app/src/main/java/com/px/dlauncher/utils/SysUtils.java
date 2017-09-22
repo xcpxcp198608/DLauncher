@@ -134,7 +134,7 @@ public class SysUtils {
             int count = runningAppProcessInfoList.size();
             for(int i = 0 ; i < count ; i++){
                 ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcessInfoList.get(i);
-                if(runningAppProcessInfo.importance > ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND){
+                if(runningAppProcessInfo.importance > ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE){
                     String [] pkgList = runningAppProcessInfo.pkgList;
                     int count1 = pkgList.length;
                     for (int j=0; j< count1; j++){
