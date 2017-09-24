@@ -22,8 +22,8 @@ public class Application extends android.app.Application {
         context = getApplicationContext();
         executorService = Executors.newCachedThreadPool();
         executorService.execute(new InstalledAppData());
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(getApplicationContext(), path);
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(getApplicationContext(), path);
     }
 
     public static Context getContext (){

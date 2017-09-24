@@ -13,7 +13,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             "label text ,packageName text,type text , shortcut text)";
     private static final String DROP_TABLE= "drop table if exists "+TABLE_NAME;
 
-    private static final int VERSION =8;
+    private static final int VERSION =10;
 
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);

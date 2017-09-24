@@ -23,6 +23,8 @@
         android:name=".Application"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
             android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
