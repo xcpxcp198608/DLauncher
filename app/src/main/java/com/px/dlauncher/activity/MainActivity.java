@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibtPower.setOnClickListener(this);
         ibtVolumeUp.setOnClickListener(this);
         ibtVolumeDown.setOnClickListener(this);
-        flClean.setOnFocusChangeListener(this);
+        flClean.setOnClickListener(this);
         llGooglePlay.setOnFocusChangeListener(this);
         llYoutube.setOnFocusChangeListener(this);
         llBrowser.setOnFocusChangeListener(this);
