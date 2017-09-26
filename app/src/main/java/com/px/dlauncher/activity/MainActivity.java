@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibtPower.setOnClickListener(this);
         ibtVolumeUp.setOnClickListener(this);
         ibtVolumeDown.setOnClickListener(this);
-        flClean.setOnFocusChangeListener(this);
+        flClean.setOnClickListener(this);
         llGooglePlay.setOnFocusChangeListener(this);
         llYoutube.setOnFocusChangeListener(this);
         llBrowser.setOnFocusChangeListener(this);
@@ -223,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
                 break;
             case R.id.fl_clean:
+                Logger.d("clean");
                 SysUtils.cleanMemory(MainActivity.this);
                 break;
             default:

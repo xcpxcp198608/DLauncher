@@ -255,6 +255,7 @@
             android:id="@+id/fl_clean"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:clickable="true"
             android:layout_margin="5dp"
             android:background="@drawable/bg_clean"
             android:layout_weight="1"
