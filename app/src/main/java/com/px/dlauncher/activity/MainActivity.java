@@ -223,7 +223,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
                 break;
             case R.id.fl_clean:
-                Logger.d("clean");
                 SysUtils.cleanMemory(MainActivity.this);
                 break;
             default:
