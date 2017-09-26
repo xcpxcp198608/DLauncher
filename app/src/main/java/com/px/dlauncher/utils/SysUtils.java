@@ -131,14 +131,13 @@ public class SysUtils {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcessInfoList = activityManager.getRunningAppProcesses();
         List<ActivityManager.RunningServiceInfo> runningServiceInfoList = activityManager.getRunningServices(100);
         if(runningAppProcessInfoList != null){
-            int count = runningAppProcessInfoList.size();
-            for(int i = 0 ; i < count ; i++){
+            for(int i = 0 ; i < runningAppProcessInfoList.size() ; i++){
                 ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcessInfoList.get(i);
                 if(runningAppProcessInfo.importance > ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND){
                     String [] pkgList = runningAppProcessInfo.pkgList;
-                    int count1 = pkgList.length;
-                    for (int j=0; j< count1; j++){
-                        activityManager.killBackgroundProcesses(pkgList[j]);
+                    for (String aPkgList : pkgList) {
+//                        Logger.d(aPkgList);
+                        activityManager.killBackgroundProcesses(aPkgList);
                     }
                 }
             }

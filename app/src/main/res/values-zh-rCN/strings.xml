@@ -7,6 +7,9 @@
     <string name="games">在线视频</string>
     <string name="videos">本地视频</string>
     <string name="music">音乐</string>
-    <string name="clean">Storage Cleanup</string>
-
+    <string name="clean">清理空间</string>
+    <string name="settings">设置</string>
+    <string name="shutdown">关机?</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
 </resources>

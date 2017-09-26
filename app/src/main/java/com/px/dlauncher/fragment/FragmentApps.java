@@ -68,7 +68,7 @@ public class FragmentApps extends Fragment {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 String packageName = appInfos.get(position).getPackageName();
-                                Logger.d(packageName);
+//                                Logger.d(packageName);
                                 AppUtils.launchApp(getContext() , packageName);
                             }
                         });

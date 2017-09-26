@@ -62,6 +62,7 @@ public class AppsShortcutAdapter extends BaseAdapter {
             viewHolder.tvLabel.setText(appInfo.getLabel());
         }else {
             viewHolder.ivIcon.setImageResource(R.drawable.add);
+            viewHolder.tvLabel.setText("Add");
         }
         convertView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

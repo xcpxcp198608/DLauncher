@@ -1,6 +1,7 @@
 package com.px.dlauncher;
 
 import android.content.Context;
+import android.os.Environment;
 
 import com.px.dlauncher.data.InstalledAppData;
 import com.px.dlauncher.utils.Logger;
@@ -17,9 +18,12 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         Logger.init("----px----");
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
         context = getApplicationContext();
         executorService = Executors.newCachedThreadPool();
         executorService.execute(new InstalledAppData());
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext(), path);
     }
 
     public static Context getContext (){
