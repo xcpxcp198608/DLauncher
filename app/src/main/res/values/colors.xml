@@ -10,10 +10,16 @@
     <color name="colorGreen2">#00aba2</color>
     <color name="colorPurple2">#5b36b7</color>
     <color name="colorPink2">#c400ce</color>
+    <color name="colorPink3">#5a015e</color>
     <color name="colorRed2">#ff3d00</color>
     <color name="colorPurple3">#8f1acb</color>
+    <color name="colorPurple4">#1b0328</color>
+    <color name="colorPurple5">#0f0a12</color>
     <color name="colorRed3">#ff017e</color>
+    <color name="colorRed4">#4b0125</color>
     <color name="colorGreen3">#00a201</color>
+    <color name="colorGreen5">#063526</color>
+    <color name="colorGreen6">#234014</color>
     <color name="colorBlue3">#075ac0</color>
     <color name="colorBlue4">#030c43</color>
     <color name="colorGreen4">#aed500</color>

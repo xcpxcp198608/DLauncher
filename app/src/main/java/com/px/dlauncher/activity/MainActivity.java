@@ -26,6 +26,7 @@ import com.px.dlauncher.Application;
 import com.px.dlauncher.F;
 import com.px.dlauncher.R;
 import com.px.dlauncher.adapter.AppsShortcutAdapter;
+import com.px.dlauncher.animator.Rotation;
 import com.px.dlauncher.animator.Zoom;
 import com.px.dlauncher.beans.AppInfo;
 import com.px.dlauncher.beans.UsbEvent;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ivGooglePlay, ivYoutube, ivBrowser, ivFile, ivMedia;
     private LinearLayout llGooglePlay, llYoutube, llBrowser, llFile, llMedia, llApps, llSettings;
     private ImageButton ibtPower, ibtVolumeUp, ibtVolumeDown;
-    private ImageView ivWifi, ivUsb;
+    private ImageView ivWifi, ivUsb, ivClean;
     private TextView tvGooglePlay, tvYoutube, tvBrowser, tvFile, tvMedia, tvTime, tvDate, tvClean;
     private FrameLayout flClean;
     private GridView gvShortcut;
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ivBrowser = (ImageView) findViewById(R.id.ibt_browser);
         ivFile = (ImageView) findViewById(R.id.ibt_file);
         ivMedia = (ImageView) findViewById(R.id.ibt_media);
+        ivClean = (ImageView) findViewById(R.id.ivClean);
 //        ivApps = (ImageView) findViewById(R.id.ibt_apps);
 //        ivSettings = (ImageView) findViewById(R.id.ibt_settings);
         tvGooglePlay = (TextView) findViewById(R.id.tv_google_play);
@@ -223,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
                 break;
             case R.id.fl_clean:
+                Rotation.start(ivClean);
                 SysUtils.cleanMemory(MainActivity.this);
                 break;
             default:

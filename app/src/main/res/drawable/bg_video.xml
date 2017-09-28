@@ -3,5 +3,5 @@
     <item android:drawable="@drawable/bg_video_focus" android:state_pressed="true"/>
     <item android:drawable="@drawable/bg_video_focus" android:state_selected="true"/>
     <item android:drawable="@drawable/bg_video_focus" android:state_focused="true"/>
-    <item android:drawable="@color/colorGreen2" />
+    <item android:drawable="@drawable/bg_video_normal" />
 </selector>
