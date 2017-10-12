@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="100dp"
-    android:paddingRight="100dp"
-    android:paddingTop="80dp"
+    android:paddingLeft="150dp"
+    android:paddingRight="150dp"
+    android:paddingTop="100dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -32,7 +32,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_google_play"
                     android:background="@android:color/transparent"
@@ -64,7 +64,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_youtube"
                     android:background="@android:color/transparent"
@@ -96,7 +96,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_browser"
                     android:background="@android:color/transparent"
@@ -134,7 +134,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_file"
                     android:background="@android:color/transparent"
@@ -165,7 +165,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_media"
                     android:background="@android:color/transparent"
@@ -195,7 +195,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:padding="30dp"
+                    android:padding="40dp"
                     android:scaleType="centerInside"
                     android:id="@+id/ibt_apps"
                     android:src="@drawable/apps"
@@ -276,7 +276,7 @@
                 android:layout_marginLeft="75dp"
                 tools:text="30%\nStorage Cleanup"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
