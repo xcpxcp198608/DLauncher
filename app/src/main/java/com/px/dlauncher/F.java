@@ -16,6 +16,7 @@ public final class F {
     public static final class packageName {
         public static final String gallery = "com.android.gallery3d";
         public static final String browser = "com.android.browser";
+        public static final String chrome = "com.android.chrome";
         public static final String setting = "com.android.tv.settings";
         public static final String setting1 = "com.android.settings";
         public static final String app = "com.px.dlauncher";
