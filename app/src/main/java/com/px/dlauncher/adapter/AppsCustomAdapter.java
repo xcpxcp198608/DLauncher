@@ -55,7 +55,7 @@ public class AppsCustomAdapter extends BaseAdapter {
         if(list != null && position <list.size()){
             AppInfo appInfo = list.get(position);
             viewHolder.ivIcon.setImageDrawable(AppUtils.getIcon(context,appInfo.getPackageName()));
-            viewHolder.tvLabel.setText(appInfo.getLabel());
+            viewHolder.tvLabel.setText(AppUtils.getLabelName(parent.getContext(), appInfo.getPackageName()));
 
         }else {
             viewHolder.ivIcon.setImageResource(R.drawable.add);
