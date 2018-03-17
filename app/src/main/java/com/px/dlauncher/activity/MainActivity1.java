@@ -1,10 +1,7 @@
 package com.px.dlauncher.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.media.AudioManager;
-import android.media.Image;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,7 +26,6 @@ import com.px.dlauncher.receiver.WifiStatusReceiver;
 import com.px.dlauncher.sql.AppsDao;
 import com.px.dlauncher.utils.AppUtils;
 import com.px.dlauncher.utils.RxBus;
-import com.px.dlauncher.utils.SysUtils;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;

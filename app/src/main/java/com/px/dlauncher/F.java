@@ -24,7 +24,8 @@ public final class F {
     public static final class packageName {
         public static final String gallery = "com.rockchips.mediacenter";
         public static final String browser = "com.android.chrome";
-        public static final String setting = "com.android.tv.settings";
+        public static final String tv_setting = "com.android.tv.settings";
+        public static final String setting = "com.android.settings";
         public static final String app = "com.px.dlauncher";
         public static final String google_play = "com.android.vending";
         public static final String file = "com.droidlogic.FileBrower";
