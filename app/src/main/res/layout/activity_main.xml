@@ -15,8 +15,8 @@
 
     <GridView
         android:layout_marginTop="20dp"
-        android:paddingLeft="105dp"
-        android:paddingRight="105dp"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp"
         android:numColumns="10"
         android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"

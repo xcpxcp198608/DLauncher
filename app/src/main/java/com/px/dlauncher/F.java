@@ -19,6 +19,7 @@ public final class F {
         public static final String chrome = "com.android.chrome";
         public static final String setting = "com.android.tv.settings";
         public static final String setting1 = "com.android.settings";
+        public static final String rk_media_center = "com.rockchips.mediacenter";
         public static final String app = "com.px.dlauncher";
         public static final String google_play = "com.android.vending";
         public static final String file = "com.android.rockchip";
