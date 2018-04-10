@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DLauncher</string>
+
+    <string name="apps">приложений</string>
+    <string name="games">онлайн видео</string>
+    <string name="videos">местные видео</string>
+    <string name="music">музыка</string>
+    <string name="clean">хранение уборку</string>
+    <string name="settings">параметры</string>
+    <string name="shutdown">Shutdown now?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+</resources>
