@@ -118,7 +118,7 @@ public class SysUtils {
         activityManager.getMemoryInfo(memoryInfo);
         long availMemory = memoryInfo.availMem;
         long totalMemory = memoryInfo.totalMem;
-        float rate =round2Float((float)availMemory / totalMemory *100) ;
+        float rate =round2Float((float)(totalMemory- availMemory) / totalMemory *100) ;
         return rate;
     }
 
