@@ -137,6 +137,7 @@
                     android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_file"
+                    android:src="@drawable/kodi"
                     android:background="@android:color/transparent"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -268,15 +269,15 @@
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/clean_memory"
                 android:layout_gravity="center_vertical"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
 
             <TextView
                 android:id="@+id/tv_clean"
                 android:layout_marginLeft="75dp"
                 tools:text="30%\nStorage Cleanup"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
