@@ -378,7 +378,11 @@ public class ViewPagerIndicator extends LinearLayout {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     if(hasFocus){
-                        mViewPager.setCurrentItem(j);
+                        try {
+                            mViewPager.setCurrentItem(j);
+                        }catch (Exception e){
+
+                        }
                     }
                 }
             });
