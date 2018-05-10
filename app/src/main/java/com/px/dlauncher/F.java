@@ -26,6 +26,8 @@ public final class F {
         public static final String youtube = "com.google.android.youtube.tv";
         public static final String kodi = "org.xbmc.kodi";
         public static final String player = "com.rockchips.mediacenter";
+        public static final String esop = "com.sliontek.esop";
+        public static final String apk_installer = "com.android.apkinstaller";
     }
     public static final class path {
         public static final String logcat = Environment.getExternalStorageDirectory().getAbsolutePath()

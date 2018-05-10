@@ -92,15 +92,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvBrowser = (TextView) findViewById(R.id.tv_browser);
         tvFile = (TextView) findViewById(R.id.tv_file);
         tvMedia = (TextView) findViewById(R.id.tv_media);
-        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.google_play));
-        ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube));
+        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.esop));
+        ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.apk_installer));
         ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.chrome));
-        ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.kodi));
+        ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file));
         ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.player));
-        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.google_play));
-        tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube));
+        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.esop));
+        tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.apk_installer));
         tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.chrome));
-        tvFile.setText(getString(R.string.kodi));
+        tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file));
         tvMedia.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.player));
         ibtPower = (ImageButton) findViewById(R.id.ibt_power);
         ibtVolumeUp = (ImageButton) findViewById(R.id.ibtVolumeUp);
@@ -192,16 +192,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ll_google_play:
-                AppUtils.launchApp(MainActivity.this, F.packageName.google_play);
+                AppUtils.launchApp(MainActivity.this, F.packageName.esop);
                 break;
             case R.id.ll_youtube:
-                AppUtils.launchApp(MainActivity.this, F.packageName.youtube);
+                AppUtils.launchApp(MainActivity.this, F.packageName.apk_installer);
                 break;
             case R.id.ll_browser:
                 AppUtils.launchApp(MainActivity.this, F.packageName.chrome);
                 break;
             case R.id.ll_file:
-                AppUtils.launchApp(MainActivity.this, F.packageName.kodi);
+                AppUtils.launchApp(MainActivity.this, F.packageName.file);
                 break;
             case R.id.ll_media:
                 AppUtils.launchApp(MainActivity.this, F.packageName.player);

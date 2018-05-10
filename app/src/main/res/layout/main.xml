@@ -137,7 +137,6 @@
                     android:padding="40dp"
                     android:scaleType="fitCenter"
                     android:id="@+id/ibt_file"
-                    android:src="@drawable/kodi"
                     android:background="@android:color/transparent"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
