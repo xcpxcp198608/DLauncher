@@ -29,6 +29,7 @@ public class InstalledAppData implements Runnable {
         PackageManager packageManager = Application.getContext().getPackageManager();
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
+        intent.addCategory("android.intent.category.LEANBACK_LAUNCHER");
         List<ResolveInfo> localList = packageManager.queryIntentActivities(intent ,0);
         Iterator<ResolveInfo> iterator = null;
         if(localList != null) {
