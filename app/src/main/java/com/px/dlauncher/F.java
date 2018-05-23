@@ -23,7 +23,8 @@ public final class F {
         public static final String app = "com.px.dlauncher";
         public static final String google_play = "com.android.vending";
         public static final String file = "com.android.rockchip";
-        public static final String youtube = "com.google.android.youtube.tv";
+        public static final String youtube_tv = "com.google.android.youtube.tv";
+        public static final String youtube = "com.google.android.youtube";
         public static final String kodi = "org.xbmc.kodi";
         public static final String player = "com.rockchips.mediacenter";
         public static final String esop = "com.sliontek.esop";

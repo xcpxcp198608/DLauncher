@@ -180,6 +180,11 @@ public class AppUtils {
             Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);
             if (intent != null) {
                 context.startActivity(intent);
+            }else{
+                intent = context.getPackageManager().getLeanbackLaunchIntentForPackage(packageName);
+                if(intent != null){
+                    context.startActivity(intent);
+                }
             }
         }
     }

@@ -1,15 +1,16 @@
 package com.px.dlauncher.data;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
 
 import com.px.dlauncher.Application;
 import com.px.dlauncher.F;
-import com.px.dlauncher.activity.IMainActivity;
 import com.px.dlauncher.beans.AppInfo;
 import com.px.dlauncher.sql.AppsDao;
+import com.px.dlauncher.utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,8 +30,11 @@ public class InstalledAppData implements Runnable {
         PackageManager packageManager = Application.getContext().getPackageManager();
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
-        intent.addCategory("android.intent.category.LEANBACK_LAUNCHER");
         List<ResolveInfo> localList = packageManager.queryIntentActivities(intent ,0);
+        List<ResolveInfo> leanbackApps = getLeanbackApps(packageManager);
+        if(leanbackApps != null && leanbackApps.size() > 0){
+            localList.addAll(leanbackApps);
+        }
         Iterator<ResolveInfo> iterator = null;
         if(localList != null) {
             iterator = localList.iterator();
@@ -45,7 +49,7 @@ public class InstalledAppData implements Runnable {
                 AppInfo appInfo = new AppInfo();
                 appInfo.setLabel(resolveInfo.loadLabel(packageManager).toString());
                 appInfo.setPackageName(packageName);
-                if(F.packageName.kodi.equals(packageName) || F.packageName.youtube.equals(packageName)){
+                if(F.packageName.kodi.equals(packageName) || F.packageName.youtube_tv.equals(packageName)){
                     appInfo.setType(F.app_type.online);
                 }else if(F.packageName.player.equals(packageName)){
                     appInfo.setType(F.app_type.videos);
@@ -64,5 +68,43 @@ public class InstalledAppData implements Runnable {
 
         }
         return list;
+    }
+
+    public List<AppInfo> getApps1(){
+        AppsDao appsDao = AppsDao.getInstance(Application.getContext());
+        List<AppInfo> list = new ArrayList<>();
+        PackageManager packageManager = Application.getContext().getPackageManager();
+        List<PackageInfo> packageInfoList = packageManager.getInstalledPackages(0);
+        if(packageInfoList != null && packageInfoList.size() > 0){
+            for(PackageInfo packageInfo: packageInfoList){
+                String packageName = packageInfo.packageName;
+                AppInfo appInfo = new AppInfo();
+                appInfo.setPackageName(packageName);
+                appInfo.setLabel(AppUtils.getLabelName(Application.getContext(), packageName));
+                if(F.packageName.app.equals(packageName)){
+                    continue;
+                }
+                if(F.packageName.kodi.equals(packageName) || F.packageName.youtube_tv.equals(packageName)){
+                    appInfo.setType(F.app_type.online);
+                }else if(F.packageName.player.equals(packageName)){
+                    appInfo.setType(F.app_type.videos);
+                }else {
+                    appInfo.setType(F.app_type.apps);
+                }
+                appInfo.setShortcut("1");
+                list.add(appInfo);
+                if(!appsDao.isExists(appInfo)) {
+                    appsDao.insertData(appInfo);
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<ResolveInfo> getLeanbackApps(PackageManager packageManager){
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LEANBACK_LAUNCHER");
+        List<ResolveInfo> localList = packageManager.queryIntentActivities(intent ,0);
+        return localList;
     }
 }

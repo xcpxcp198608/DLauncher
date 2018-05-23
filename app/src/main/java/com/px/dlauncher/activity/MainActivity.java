@@ -39,7 +39,6 @@ import com.px.dlauncher.utils.RxBus;
 import com.px.dlauncher.utils.SysUtils;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -92,13 +91,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvBrowser = (TextView) findViewById(R.id.tv_browser);
         tvFile = (TextView) findViewById(R.id.tv_file);
         tvMedia = (TextView) findViewById(R.id.tv_media);
-        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.esop));
-        ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.apk_installer));
+        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.google_play));
+        ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube));
         ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.chrome));
         ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file));
         ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.player));
-        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.esop));
-        tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.apk_installer));
+        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.google_play));
+        tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube));
         tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.chrome));
         tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file));
         tvMedia.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.player));
@@ -192,10 +191,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ll_google_play:
-                AppUtils.launchApp(MainActivity.this, F.packageName.esop);
+                AppUtils.launchApp(MainActivity.this, F.packageName.google_play);
                 break;
             case R.id.ll_youtube:
-                AppUtils.launchApp(MainActivity.this, F.packageName.apk_installer);
+                AppUtils.launchApp(MainActivity.this, F.packageName.youtube);
                 break;
             case R.id.ll_browser:
                 AppUtils.launchApp(MainActivity.this, F.packageName.chrome);
