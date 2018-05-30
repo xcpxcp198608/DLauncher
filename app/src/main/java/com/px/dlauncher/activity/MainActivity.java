@@ -94,12 +94,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube));
         ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.chrome));
-        ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file_rk));
+        ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file_aml));
         ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.quick_support));
         ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.market));
         tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube));
         tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.chrome));
-        tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file_rk));
+        tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file_aml));
         tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.quick_support));
         tvMedia.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.market));
 
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 AppUtils.launchApp(MainActivity.this, F.packageName.chrome);
                 break;
             case R.id.ll_browser:
-                AppUtils.launchApp(MainActivity.this, F.packageName.file_rk);
+                AppUtils.launchApp(MainActivity.this, F.packageName.file_aml);
                 break;
             case R.id.ll_file:
                 AppUtils.launchApp(MainActivity.this, F.packageName.quick_support);
