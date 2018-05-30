@@ -29,6 +29,10 @@ public final class F {
         public static final String player = "com.rockchips.mediacenter";
         public static final String esop = "com.sliontek.esop";
         public static final String apk_installer = "com.android.apkinstaller";
+        public static final String file_aml = "com.droidlogic.FileBrower";
+        public static final String file_rk = "com.android.rockchip";
+        public static final String quick_support = "com.teamviewer.quicksupport.market";
+        public static final String market = "cm.aptoidetv.pt";
     }
     public static final class path {
         public static final String logcat = Environment.getExternalStorageDirectory().getAbsolutePath()
