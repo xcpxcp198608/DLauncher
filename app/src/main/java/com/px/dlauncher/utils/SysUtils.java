@@ -172,4 +172,16 @@ public class SysUtils {
         }
         return blnRet;
     }
+
+
+    public static int shutdown() {
+        int r = 0;
+        try {
+            Process process = Runtime.getRuntime().exec(new String[]{"su" , "-c" ,"reboot -p"});
+            r = process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            r = -1;
+        }
+        return r;
+    }
 }
