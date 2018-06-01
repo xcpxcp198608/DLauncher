@@ -92,12 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvFile = (TextView) findViewById(R.id.tv_file);
         tvMedia = (TextView) findViewById(R.id.tv_media);
 
-        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube));
+        ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube_tv));
         ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.chrome));
         ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file_aml));
         ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.quick_support));
         ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.market));
-        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube));
+        tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube_tv));
         tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.chrome));
         tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file_aml));
         tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.quick_support));
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ll_google_play:
-                AppUtils.launchApp(MainActivity.this, F.packageName.youtube);
+                AppUtils.launchApp(MainActivity.this, F.packageName.youtube_tv);
                 break;
             case R.id.ll_youtube:
                 AppUtils.launchApp(MainActivity.this, F.packageName.chrome);
