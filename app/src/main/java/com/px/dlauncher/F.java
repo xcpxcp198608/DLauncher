@@ -33,6 +33,7 @@ public final class F {
         public static final String file_rk = "com.android.rockchip";
         public static final String quick_support = "com.teamviewer.quicksupport.market";
         public static final String market = "cm.aptoidetv.pt";
+        public static final String atoptv = "com.nextologies.atoptv";
     }
     public static final class path {
         public static final String logcat = Environment.getExternalStorageDirectory().getAbsolutePath()

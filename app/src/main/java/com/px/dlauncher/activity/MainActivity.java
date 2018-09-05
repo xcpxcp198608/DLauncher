@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ivGooglePlay.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.youtube_tv));
         ivYoutube.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.chrome));
         ivBrowser.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.file_rk));
-        ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.quick_support));
+        ivFile.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.atoptv));
         ivMedia.setImageDrawable(AppUtils.getIcon(MainActivity.this, F.packageName.market));
         tvGooglePlay.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.youtube_tv));
         tvYoutube.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.chrome));
         tvBrowser.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.file_rk));
-        tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.quick_support));
+        tvFile.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.atoptv));
         tvMedia.setText(AppUtils.getLabelName(MainActivity.this, F.packageName.market));
 
         ibtPower = (ImageButton) findViewById(R.id.ibt_power);
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 AppUtils.launchApp(MainActivity.this, F.packageName.file_rk);
                 break;
             case R.id.ll_file:
-                AppUtils.launchApp(MainActivity.this, F.packageName.quick_support);
+                AppUtils.launchApp(MainActivity.this, F.packageName.atoptv);
                 break;
             case R.id.ll_media:
                 AppUtils.launchApp(MainActivity.this, F.packageName.market);
